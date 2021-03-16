@@ -256,11 +256,11 @@ function bodyScrollingToggle(){
 				document.querySelector(hash).classList.remove("hide");
 				// deactive existing active navigation menu 'link-item'
 				navMenu.querySelector(".active").classList.add("outer-shadow","hover-in-shadow");
-				navMenu.querySelector(".active").classList.remove("active","inner-shadow");
+				navMenu.querySelector(".active").classList.remove("active");
 				if(navMenu.classList.contains("open")){
 					// active new navigation menu link-item
-					event.target.classList.add("active","inner-shadow");
-					event.target.classList.remove("outer-shadow","hover-in-shadow");
+					event.target.classList.add("active","outer-shadow");
+					event.target.classList.remove("hover-in-shadow");
 					// hide naviigation menu
 					hideNavMenu();
 				}
@@ -270,8 +270,8 @@ function bodyScrollingToggle(){
 					navItems.forEach((item)=>{
 						if(hash === item.hash){
 							// active new navigation menu link-item
-							item.classList.add("active","inner-shadow");
-							item.classList.remove("outer-shadow","hover-in-shadow");
+							item.classList.add("active","outer-shadow");
+							item.classList.remove("hover-in-shadow");
 						}					
 					})
 					fadeOutEffect();
