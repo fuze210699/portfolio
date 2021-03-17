@@ -251,7 +251,7 @@ function bodyScrollingToggle(){
 				// deactive existing section 'active'
 				document.querySelector(".section.active").classList.add("hide");
 				document.querySelector(".section.active").classList.remove("active");
-				// active new section
+				// // active new section
 				document.querySelector(hash).classList.add("active");
 				document.querySelector(hash).classList.remove("hide");
 				// deactive existing active navigation menu 'link-item'

@@ -5,23 +5,35 @@
 
 :root {
 	--bg-black-900: #000000;
-	--bg-black-100: #dddddd;
-	--bg-black-50: #eff0f4;
-	--bg-opacity: rgba(255, 255, 255, 0.5);
-	--text-black-900: #000000;
-	--text-black-700: #555555;
-	--text-black-600: #666666;
-	--text-black-300: #bbbbbb;
-	--outer-shadow: 3px 3px 3px #d0d0d0, -3px -3px 3px 0 #f8f8f8;
-	--outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 0 #f8f8f8;
-	--inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px -3px 0#f8f8f8;
-	--inner-shadow-0: inset -3px 3px 3px 1px #d0d0d0;
+    --bg-black-100: #dddddd;
+    --bg-black-50: #eff0f4;
+    --bg-opacity: rgba(255, 255, 255, 0.5);
+    --text-black-900: #000000;
+    --text-black-700: #555555;
+    --text-black-600: #666666;
+    --text-black-300: #bbbbbb;
+    --outer-shadow: 3px 3px 3px #d0d0d0, -2px -2px 2px 0 #f8f8f8;
+    --outer-shadow-0: -1px -1px 0px #d0d0d0, 2px 2px 0px 0px #f8f8f8;
+    --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px -3px 0#f8f8f8;
+    --inner-shadow-0: inset -3px 3px 3px 1px #d0d0d0;	
 }
 
 /*..........
 Global style
 */
-
+body.dark{
+	--bg-black-900: #ffffff;
+	--bg-black-100: #353535;
+	--bg-black-50: #2b2c2f;
+	--bg-opacity: rgba(43, 44, 47, 0.5);
+	--text-black-900: #ffffff;
+	--text-black-700: #ffffff;
+	--text-black-600: #bbbbbb;
+	--outer-shadow: 3px 3px 3px #363636, -2px -2px 2px 0 #363636;
+	--outer-shadow-0: -1px -1px 0px #222327, 2px 2px 0px 0px #363636;
+	--inner-shadow: inset 3px 3px 3px #222327, inset -3px -3px -3px 0#363636;
+	--inner-shadow-0: inset -3px 3px 3px 1px #222327, inset 0 0 0 0 #363636;
+}
 body {
 	font-size: 16px;
 	line-height: 1.5;
@@ -79,7 +91,7 @@ img {
 }
 
 .outer-shadow {
-	box-shadow:3px 3px 3px #d0d0d0, -3px -3px 3px 0 #f8f8f8;
+	box-shadow: var(--outer-shadow);
 }
 
 .hover-in-shadow {
@@ -88,7 +100,7 @@ img {
 }
 
 .hover-in-shadow:hover {
-	box-shadow:  0px 0px 0px 0 #f8f8f8, 0px 0px 0px 0 #d0d0d0;
+	box-shadow:  var(--outer-shadow-0);
 }
 
 .hover-in-shadow:after {
@@ -99,11 +111,12 @@ img {
 	width: 100%;
 	height: 100%;
 	transition: all 0.3s ease;
-	border-radius: 50%;
+	border-radius: 50%; 
 }
 
 .hover-in-shadow:hover:after {
-	box-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px 0 #f8f8f8;
+	box-shadow: var(--outer-shadow-0);
+
 }
 
 .inner-shadow {
@@ -186,6 +199,7 @@ img {
 	left: 30%;
 	top: 20%;
 	animation: spin 10s linear infinite;
+	position: fixed;
 }
 
 .effect-4:before {
@@ -344,7 +358,9 @@ header
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
-
+.header .circle-btn:hover:after{
+	border-radius: 50%;
+}
 .header .circle-btn span {
 	display: block;
 	height: 2px;
@@ -375,7 +391,7 @@ header
 .nav-menu {
 	position: fixed;
 	background-color: var(--bg-black-50);
-	padding: 0 15px;
+	/* padding: 0 15px; */
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -449,7 +465,7 @@ header
 	display: inline-block;
 	font-size: 28px;
 	font-weight: 600;
-	color: var(--text-black-700);
+	color: var(--text-black-600);
 	padding: 5px 30px;
 	text-transform: capitalize;
 	border-radius: 30px;
@@ -504,17 +520,17 @@ header
 }
 
 .home-section .home-img .img-box {
-	max-width: 450px;
 	display: block;
 	margin: auto;
 	border-radius: 50%;
 	padding: 15px;
+	transition: all 0.3 ease;
 }
 
 .home-section .home-img .img-box img {
 	width: 100%;
 	border-radius: 50%;
-	border: 5px solid transparent;
+	border: 3px solid transparent;
 }
 
 /*--------------about section--------------*/
@@ -668,7 +684,7 @@ header
 }
 
 .about-section .skills .skill-item .progress-bar {
-	background-color: #8b4513;
+	background-color: var(--skin-color);
 	height: 6px;
 	left: 7px;
 	top: 7px;
@@ -821,6 +837,7 @@ header
 	transition: all 0.3s ease;
 	margin: 0 auto 30px;
 	position: relative;
+	color:var(--text-black-600);
 }
 
 .service-section .service-item-inner .icon:after {
@@ -835,11 +852,12 @@ header
 }
 
 .service-section .service-item-inner:hover .icon {
-	box-shadow: var(--inner-shadow-0);
+	box-shadow: var(--outer-shadow);
 }
 
 .service-section .service-item-inner:hover .icon:after {
 	box-shadow: var(--outer-shadow);
+	
 }
 
 .service-section .service-item-inner:hover .icon i {
@@ -1206,6 +1224,7 @@ header
 	color: var(--text-black-900);
 	transition: all 0.3s ease;
 	opacity: 0.5;
+	position: absolute;
 }
 
 .portfolio-popup .pp-prev:hover, .portfolio-popup .pp-next:hover {
@@ -1341,6 +1360,10 @@ header
 	max-width:33.33%;
 	padding:15px;
 	display: flex;
+	cursor: pointer;
+}
+.contact-section .contact-item:hover{
+	box-shadow: var(--outer-shadow-0);
 }
 .contact-section .contact-item-inner{
 	padding: 30px 15px;
